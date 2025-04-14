@@ -6,7 +6,7 @@ class Menu(Entity):
         super().__init__(
             parent=camera.ui,
             model='quad',
-            color=color.rgba(25, 25, 25, 200),
+            color=color.blue,
             scale=(2, 2),
             enabled=False,
             z=-10
@@ -14,7 +14,7 @@ class Menu(Entity):
         self.juego = juego
         
         # Contenedor central
-        self.contenedor = Entity(parent=self, scale=(0.6, 0.7))
+        self.contenedor = Entity(parent=self, scale=(0.6, 0.7), color=color.blue)
         
         # Elementos del menú
         self.titulo = Text(

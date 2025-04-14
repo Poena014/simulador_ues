@@ -2,6 +2,7 @@ from ursina import *
 from ursina.prefabs.first_person_controller import FirstPersonController
 
 from .textoemergente import TextPopup
+from .minimapa import Minimap
 
 class MiJuego(Entity):
     def __init__(self):
@@ -10,6 +11,12 @@ class MiJuego(Entity):
         self.popup = None
         self.inicializar_jugador()
         self.inicializar_mundo()
+        
+        ruta_minimapa = r"img\fia.png" 
+        ruta_indicador = r"img\indicador.png" 
+        minimapa= Minimap(player=self.jugador, map_scale=Vec2(0.45, 0.35) ,bg_texture=ruta_minimapa,icon_texture=ruta_indicador)
+        
+        
 
     def inicializar_jugador(self):
         self.jugador = FirstPersonController(
@@ -20,8 +27,6 @@ class MiJuego(Entity):
         self.jugador.jump_height = 3
 
     def inicializar_mundo(self):
-        # Cielo
-        Sky(texture='sky_sunset')
         
         # Suelo
         Entity(
@@ -98,11 +103,9 @@ class MiJuego(Entity):
         if self.popup:
             destroy(self.popup)
             
-        hit_info = raycast(
-            self.jugador.camera_pivot.world_position,
-            self.jugador.camera_pivot.forward,
-            distance=50,
-            ignore=(self.jugador,))
+        hit_info = raycast(self.jugador.camera_pivot.world_position, 
+                         self.jugador.camera_pivot.forward, 
+                         distance=50)
         
         if hit_info.hit:
             self.crear_popup(hit_info.entity)
@@ -110,23 +113,10 @@ class MiJuego(Entity):
     # juego.py (Fragmento modificado)
     def crear_popup(self, objeto):
 
- 
-        text_content = """
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor 
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
-        anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
-        accusantium doloremque laudantium.
-        """
-        self.popup = TextPopup(text_content)
-
+        texto_final= f"Objeto: {objeto.name}"
         
+        self.popup = TextPopup(texto_final)
 
-        
-
-   
    
     def cerrar_popup(self):
         if self.popup:
