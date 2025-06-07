@@ -15,7 +15,15 @@ class MiJuego(Entity):
         ruta_minimapa = r"img\fia.png" 
         ruta_indicador = r"img\indicador.png" 
         minimapa= Minimap(player=self.jugador, map_scale=Vec2(0.45, 0.35) ,bg_texture=ruta_minimapa,icon_texture=ruta_indicador)
-        
+                # Terreno
+        grass = Entity(
+            model='plane',
+            texture='grass',
+            scale=50,
+            color=color.green,
+            collider='box',
+            position=(0, 0, 0)
+        )
         
 
     def inicializar_jugador(self):
