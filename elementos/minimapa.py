@@ -32,6 +32,9 @@ class Minimap(Entity):
             scale=(0.1, 0.1),
         )
 
+        self.uv_center_actual = Vec2(0.5, 0.5)  # Centro actual mostrado
+        self.suavizado = 0.008  # Entre 0 (no se mueve) y 1 (salta directo). Más bajo = más lento
+
     def _get_uvs(self, center, size):
         # Calcula los UVs para mostrar solo una parte de la textura
         half = size / 2
@@ -51,7 +54,10 @@ class Minimap(Entity):
         u = clamp(map_x, half, 1-half)
         v = clamp(map_y, half, 1-half)
 
+        # Interpolación suave
+        self.uv_center_actual = lerp(self.uv_center_actual, Vec2(u, v), self.suavizado)
+
         # Actualiza los UVs del quad para mover la "ventana" (recorte de la textura)
-        self.minimap_bg.model.uvs = self._get_uvs(Vec2(u, v), self.uv_size)
+        self.minimap_bg.model.uvs = self._get_uvs(self.uv_center_actual, self.uv_size)
         self.minimap_bg.model.generate()
 

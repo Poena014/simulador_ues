@@ -3,42 +3,36 @@ from ursina.prefabs.first_person_controller import FirstPersonController
 
 from .textoemergente import TextPopup
 from .minimapa import Minimap
+from .escena1 import cargar_escena
 
 class MiJuego(Entity):
     def __init__(self):
         super().__init__()
         self.jugador = None
         self.popup = None
-        self.inicializar_jugador()
+
         self.inicializar_mundo()
         
         ruta_minimapa = r"img\mapav2simuladorues.png" 
         ruta_indicador = r"img\indicador.png" 
+        
+        
+        self.inicializar_jugador()
         Minimap(player=self.jugador, map_scale=Vec2(0.45, 0.35) ,bg_texture=ruta_minimapa,icon_texture=ruta_indicador)
         
-        
+
 
     def inicializar_jugador(self):
         self.jugador = FirstPersonController(
             mouse_sensitivity=Vec2(60, 60),
             position=(0, 2, 0)
         )
-        self.jugador.speed = 8
+        self.jugador.speed = 5
         self.jugador.jump_height = 3
 
     def inicializar_mundo(self):
-        
-        # Suelo
-        Entity(
-            model='plane',
-            texture='grass',
-            scale=100,
-            collider='mesh',
-            texture_scale=(10, 10))
-        
-        # Objetos interactivos
-        self.crear_objetos_basicos()
-        self.crear_plataforma_rotante()
+        self.objetos_escena = cargar_escena()
+        # Si necesitas manipular los objetos, puedes acceder a self.objetos_escena
 
     def crear_objetos_basicos(self):
         # Cubo rojo
