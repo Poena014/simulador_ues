@@ -24,7 +24,7 @@ def cargar_escena():
     dona = Entity(
         name='Cubo Rojo Misterioso',
         model='dona',
-        position=(-3, 6, 4),
+        position=(-3, 7.5, 4),
         scale=10,
         collider='box',
     )
