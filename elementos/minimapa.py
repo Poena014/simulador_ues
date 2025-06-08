@@ -1,11 +1,12 @@
 from ursina import *
 
 class Minimap(Entity):
-    def __init__(self, player, bg_texture='mapa_fia', icon_texture='icono_jugador', bg_position=Vec2(-0.7, 0.3), map_scale=Vec2(0.3, 0.3), zoom=0.2):
+    def __init__(self, player, bg_texture='mapa_fia', icon_texture='icono_jugador', bg_position=Vec2(-0.7, 0.3), map_scale=Vec2(0.3, 0.3), zoom=0.2, scroll_factor=0.01):
         super().__init__()
         self.player = player
         self.zoom = zoom  # Porcentaje del mapa visible (0.2 = 20%)
         self.bg_scale = map_scale
+        self.scroll_factor = scroll_factor  # Factor de reducción de desplazamiento
 
         # UVs iniciales centrados
         self.uv_center = Vec2(0.5, 0.5)
@@ -33,7 +34,8 @@ class Minimap(Entity):
         )
 
         self.uv_center_actual = Vec2(0.5, 0.5)  # Centro actual mostrado
-        self.suavizado = 0.008  # Entre 0 (no se mueve) y 1 (salta directo). Más bajo = más lento
+        self.offset = Vec2(0, 0)  # Nuevo: acumulador de desplazamiento
+        self.suavizado = 1 # Entre 0 (no se mueve) y 1 (salta directo). Más bajo = más lento
 
     def _get_uvs(self, center, size):
         # Calcula los UVs para mostrar solo una parte de la textura
@@ -45,19 +47,19 @@ class Minimap(Entity):
     def update(self):
         self.player_icon.rotation_z = -self.player.rotation_y
 
-        # Calcula la posición del jugador en el mapa (ajusta según tu escala real)
-        map_x = (self.player.x + 50) / 100  # Suponiendo que el mapa va de -50 a 50
-        map_y = (self.player.z + 50) / 100
+        # Mapea la posición del jugador directamente a UVs (ajusta el factor para tu experiencia)
+        # Por ejemplo, cada 1 unidad en el mundo mueve 0.01 en UV
+        factor = 0.002  # Ajusta este valor para la sensibilidad del desplazamiento
 
-        # Limita el centro para que no se salga de los bordes
-        half = self.uv_size / 2
-        u = clamp(map_x, half, 1-half)
-        v = clamp(map_y, half, 1-half)
+        u = 0.5 + self.player.x * factor
+        v = 0.5 + self.player.z * factor
 
-        # Interpolación suave
-        self.uv_center_actual = lerp(self.uv_center_actual, Vec2(u, v), self.suavizado)
+        # Limita al rango visible del minimapa
+        half_size = self.uv_size / 2
+        u = clamp(u, half_size, 1 - half_size)
+        v = clamp(v, half_size, 1 - half_size)
 
         # Actualiza los UVs del quad para mover la "ventana" (recorte de la textura)
-        self.minimap_bg.model.uvs = self._get_uvs(self.uv_center_actual, self.uv_size)
+        self.minimap_bg.model.uvs = self._get_uvs(Vec2(u, v), self.uv_size)
         self.minimap_bg.model.generate()
 
