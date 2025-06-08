@@ -37,7 +37,18 @@ app = Ursina(
 window.fullscreen = False
 
 
-Sky() # Cielo por defecto
+AmbientLight(color=color.rgba(200, 200, 200, 0.9))
+
+sun_light = DirectionalLight()
+sun_light.look_at(Vec3(1, -1, 1))
+sun_light.shadow_resolution = (1024, 1024)
+sun_light.shadows = True
+
+spotlight = PointLight(parent=camera, color=color.white, shadows=True)
+spotlight.position = (0, 5, 8)
+spotlight.look_at((0, 0, 5))
+spotlight.radius = 10
+spotlight.intensity = 2
 
 
 juego = MiJuego()
@@ -45,5 +56,7 @@ menu = Menu(juego)
 
 mouse.locked = True
 mouse.visible = False
+
+Sky() # Cielo por defecto
 
 app.run()

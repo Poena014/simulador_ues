@@ -19,16 +19,39 @@ def cargar_escena():
     )
     objetos.append(suelo)
 
-    cubo_rojo = Entity(
+    dona = Entity(
         name='Cubo Rojo Misterioso',
-        model='cube',
-        color=color.red,
-        position=(5, 0.5, 5),
-        scale=(2, 1, 2),
+        model='dona',
+        position=(-3, 4, 4),
+        scale=5,
         collider='box',
-        texture='white_cube'
     )
-    objetos.append(cubo_rojo)
+    objetos.append(dona)
+    
+    simularAcademica = Entity(
+        name='Cubo Rojo Misterioso',
+        model='Bicerrectoria',
+        position=(2, 4, 43),
+        scale=10,
+        collider='box',
+    )
+    objetos.append(simularAcademica)
+    
+        
+    simularEdificioA = Entity(
+        name='prueba',
+        model='tripo_convert_60c755c2-5aa5-4751-b100-d350fada5a69.obj',
+        texture=load_texture('tripo_image_60c755c2-5aa5-4751-b100-d350fada5a69_0.jpg'),
+        normal_map=load_texture('tripo_image_60c755c2-5aa5-4751-b100-d350fada5a69_2.jpg'),
+        specular_map=load_texture('tripo_image_60c755c2-5aa5-4751-b100-d350fada5a69_Roughness.jpg'),
+        position=(51, 3.5, 15),
+        rotation=(0, -90, 0),  # (X, Y, Z)
+        scale=10,
+        collider='box',
+    )
+    objetos.append(simularEdificioA)
+    
+    
     
     # dona = Entity(
     #     model='../pruebas/dona_prueba.gltf',  # Ruta al modelo de la dona
@@ -38,26 +61,10 @@ def cargar_escena():
     # )
     # objetos.append(dona)
     
-    arbol1  = Entity(
-        model='../pruebas/Tree1.gltf',  # Ruta al modelo de la dona
-        scale=1,
-        position=(5, 0, 5),
-        #texture='textura.png',
-        collider='box'  # Collider basado en la malla del modelo
-    )
+    # arbol1  =  Entity(model='Tree1.obj', texture='render1hdcool', scale=0.5)
     
-    objetos.append(arbol1)
-    
-    concha  = Entity(
-        model='../pruebas/Concha1.glb',  # Ruta al modelo de la dona
-        scale=1,
-        #EJE X, Z, Y
-        position=(10, 0, 5),
-        #texture='textura.png',
-        collider='box'  # Collider basado en la malla del modelo
-    )
-    
-    objetos.append(concha)
+    # objetos.append(arbol1)
+
     
     
 

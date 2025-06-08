@@ -48,7 +48,7 @@ class MiJuego(Entity):
     def inicializar_jugador(self):
         self.jugador = FirstPersonController(
             mouse_sensitivity=Vec2(60, 60),
-            position=(0, 0, 0)
+            position=(0, 0, -10)
         )
         self.jugador.speed = 5
         self.jugador.jump_height = 3
