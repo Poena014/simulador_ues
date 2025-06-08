@@ -1,5 +1,7 @@
 from ursina import *
 import os
+from .mesas import cargar_mesas
+from .arboles import cargar_arboles
 
 def obtener_ruta_modelo(nombre_modelo):
     import os
@@ -103,7 +105,7 @@ def cargar_escena():
     objetos.append(edificioA)
 
 
-    edificio_  = Entity(
+    edificio_marmol  = Entity(
         name='marmol',
         model='tripo_convert_e8b2b1e5-bcd9-4d97-bd22-b546fd7e2e53.obj',
         texture=load_texture('tripo_image_e8b2b1e5-bcd9-4d97-bd22-b546fd7e2e53_0.jpg'),
@@ -120,35 +122,7 @@ def cargar_escena():
     
     
     #Agreagando modelo de edificios
-    
-    arbol_izquierda_1 = Entity(
-        model='tripo_convert_aba66a69-45fd-4baa-b625-7ae8a34771e7.obj',
-        texture=load_texture('tripo_image_aba66a69-45fd-4baa-b625-7ae8a34771e7_0.jpg'),
-        scale=2.5,
-        position=Vec3(-12, 1.5, -12),
-        rotation_y=0
-    )
-    
-    objetos.append(arbol_izquierda_1)
 
-    arbol_izquierda_2 = Entity(
-        model='tripo_convert_b68a70a1-05d1-449b-ac0e-2b2583790c71.obj',
-        texture=load_texture('tripo_image_b68a70a1-05d1-449b-ac0e-2b2583790c71_0.jpg'),
-        scale=2.5,
-        position=Vec3(-13.5, 1.5, -12.5),
-        rotation_y=30
-    )
-    
-    objetos.append(arbol_izquierda_2)
-
-    arbol_izquierda_3 = Entity(
-        model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
-        texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
-        scale=2.5,
-        position=Vec3(-11, 1.5, -11.5),
-        rotation_y=60
-    )
-    objetos.append(arbol_izquierda_3)
     
     
     arquitectura = Entity(
@@ -191,5 +165,10 @@ def cargar_escena():
     )
     
     objetos.append(basurero)
+    
+    
+    objetos.extend(cargar_mesas())
+    objetos.extend(cargar_arboles())
+    
     
     return objetos
