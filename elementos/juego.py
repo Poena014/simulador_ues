@@ -11,6 +11,23 @@ class MiJuego(Entity):
         self.jugador = None
         self.popup = None
 
+        self.instrucciones = Text(
+            text="Presiona 1 para ver el menú\nClick derecho para ver mensaje\nUsa + y - para zoom de cámara",
+            origin=(-.5, .5),
+            position=(0.4, 0.45),  # Derecha
+            scale=1.2,
+            background=True
+        )
+        # Texto para mostrar el último botón presionado (parte inferior izquierda)
+        self.texto_boton = Text(
+            text="Inicio..                            ",
+            origin=(-.5, -.5),
+            position=(-0.8, -0.45, -0.01),  # Un poco delante del fondo
+            scale=(1.2, 1.2),
+            background=True,
+            color=color.yellow
+        )
+
         self.inicializar_mundo()
         
         ruta_minimapa = r"img\mapav2simuladorues.png" 
@@ -23,6 +40,7 @@ class MiJuego(Entity):
             map_scale=Vec2(0.45, 0.35),
             bg_texture=ruta_minimapa,
             icon_texture=ruta_indicador,
+            scroll_factor=0.05 # Cambiar velocidad de desplazamiento del minimapa
         )
 
 
@@ -42,11 +60,28 @@ class MiJuego(Entity):
         self.jugador.input(key)
 
     def input(self, key):
+        mensaje = ""
+        if key == '+':
+            camera.fov = max(20, camera.fov - 5)
+            mensaje = "Zoom +"
+        if key == '-':
+            camera.fov = min(120, camera.fov + 5)
+            mensaje = "Zoom -"
         if key == 'right mouse down':
             self.mostrar_popup()
-            
+            mensaje = "Click derecho: mensaje"
         if key == 'left mouse down' or key == 'escape':
             self.cerrar_popup()
+            mensaje = "Cerrar mensaje"
+        if key == '1':
+            mensaje = "Menú"
+
+        # Solo muestra mensaje si hay acción
+        self.texto_boton.text = mensaje
+
+        # Borra el mensaje después de 1 segundo si hay mensaje
+        if mensaje:
+            invoke(setattr, self.texto_boton, 'text', '', delay=1)
 
     def mostrar_popup(self):
         if self.popup:
