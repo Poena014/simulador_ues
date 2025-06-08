@@ -1,51 +1,57 @@
 from ursina import *
 
 class Minimap(Entity):
-    def __init__(self, player, map_scale=Vec2(0.45, 0.35), bg_texture='mapa_fia', icon_texture='icono_jugador', bg_position=Vec2(-0.7, 0.3), bg_scale=Vec2(0.3, 0.3)):
+    def __init__(self, player, bg_texture='mapa_fia', icon_texture='icono_jugador', bg_position=Vec2(-0.7, 0.3), map_scale=Vec2(0.3, 0.3), zoom=0.2):
         super().__init__()
         self.player = player
-        self.map_scale = map_scale
-        self.tam_minimap = bg_scale
-        
-        # Fondo del minimapa
+        self.zoom = zoom  # Porcentaje del mapa visible (0.2 = 20%)
+        self.bg_scale = map_scale
+
+        # UVs iniciales centrados
+        self.uv_center = Vec2(0.5, 0.5)
+        self.uv_size = self.zoom
+
+        # Fondo del minimapa como quad con UVs personalizados (sin modificar proporciones del scale)
         self.minimap_bg = Entity(
             parent=camera.ui,
-            model='quad',
+            model=Mesh(
+                vertices=[Vec3(-.5,-.5,0), Vec3(.5,-.5,0), Vec3(.5,.5,0), Vec3(-.5,.5,0)],
+                uvs=self._get_uvs(self.uv_center, self.uv_size),
+                triangles=[0,1,2, 2,3,0],
+                mode='triangle'
+            ),
             texture=bg_texture,
-            scale=bg_scale,
-            position=bg_position
+            position=bg_position,
+            scale=map_scale  # Solo para tamaño visual, no afecta el recorte de la textura
         )
-        
-        # # Ícono del jugador en el minimapa
-        # self.player_icon = Entity(
-        #     parent=self.minimap_bg,
-        #     model='quad',
-        #     texture=icon_texture,
-        #     scale=(0.1, 0.1),
-        #     position=(0, 0)
-        # )
-        
-        # Ícono del jugador en el minimapa
+
         self.player_icon = Entity(
             parent=self.minimap_bg,
             model='circle',
             texture=icon_texture,
             scale=(0.1, 0.1),
-            )
-        
-        
-    def update(self):
-        # if self.player and isinstance(self.player.position, Vec3):
-        #     self.player_icon.x = self.player.position.x * self.map_scale.x*0.1
-        #     self.player_icon.y = self.player.position.z * self.map_scale.y*0.1
-        #     self.player_icon.rotation_z = -self.player.rotation_y
-        # else:
-        #     print("⚠️ El objeto 'player.position' no es un Vec3:", self.player.position)
-        self.player_icon.rotation_z = -self.player.rotation_y
-        
-        self.minimap_bg.texture_offset = (
-            -float(self.player.x) * float(self.tam_minimap.x) / 10,
-            -float(self.player.z) * float(self.tam_minimap.y) / 10
         )
-        
-        
+
+    def _get_uvs(self, center, size):
+        # Calcula los UVs para mostrar solo una parte de la textura
+        half = size / 2
+        u0, v0 = center.x - half, center.y - half
+        u1, v1 = center.x + half, center.y + half
+        return [(u0, v0), (u1, v0), (u1, v1), (u0, v1)]
+
+    def update(self):
+        self.player_icon.rotation_z = -self.player.rotation_y
+
+        # Calcula la posición del jugador en el mapa (ajusta según tu escala real)
+        map_x = (self.player.x + 50) / 100  # Suponiendo que el mapa va de -50 a 50
+        map_y = (self.player.z + 50) / 100
+
+        # Limita el centro para que no se salga de los bordes
+        half = self.uv_size / 2
+        u = clamp(map_x, half, 1-half)
+        v = clamp(map_y, half, 1-half)
+
+        # Actualiza los UVs del quad para mover la "ventana" (recorte de la textura)
+        self.minimap_bg.model.uvs = self._get_uvs(Vec2(u, v), self.uv_size)
+        self.minimap_bg.model.generate()
+
