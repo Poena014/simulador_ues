@@ -1,5 +1,6 @@
 from ursina import *
 from ursina.prefabs.first_person_controller import FirstPersonController
+import os
 
 from .textoemergente import TextPopup
 from .minimapa import Minimap
@@ -96,9 +97,8 @@ class MiJuego(Entity):
 
     # juego.py (Fragmento modificado)
     def crear_popup(self, objeto):
-
-        texto_final= f"Objeto: {objeto.name}"
-        
+        texto_final = obtener_texto_objeto(objeto.name)
+        print(objeto.name, texto_final)
         self.popup = TextPopup(texto_final)
 
    
@@ -110,3 +110,12 @@ class MiJuego(Entity):
     def update(self):
         if hasattr(self, 'plataforma'):
             self.plataforma.rotation_y += 30 * time.dt
+
+def obtener_texto_objeto(nombre):
+    carpeta = os.path.join(os.path.dirname(__file__), 'textos')
+    archivo = os.path.join(carpeta, f"{nombre.lower()}.txt")
+    if os.path.exists(archivo):
+        with open(archivo, encoding='utf-8') as f:
+            return f.read().replace('\\n', '\n')  # Soporta saltos de línea escritos como \n
+    else:
+        return f"Objeto: {nombre}\n(No hay descripción disponible)"
