@@ -13,8 +13,8 @@ def cargar_escena():
     suelo = Entity(
         model='plane',
         texture='grass',
-        scale=100,
-        collider='mesh',
+        scale=300,
+        collider='box',
         texture_scale=(10, 10)
     )
     objetos.append(suelo)
@@ -22,52 +22,174 @@ def cargar_escena():
     dona = Entity(
         name='Cubo Rojo Misterioso',
         model='dona',
-        position=(-3, 4, 4),
-        scale=5,
+        position=(-3, 6, 4),
+        scale=10,
         collider='box',
     )
     objetos.append(dona)
+
+    # marmol = Entity(
+    #     name='marmol',
+    #     model='Marvin',
+    #     position=(3, 4, 6),
+    #     scale=5,
+    #     collider='box',
+    # )
+    # objetos.append(marmol)
     
     simularAcademica = Entity(
         name='Cubo Rojo Misterioso',
         model='Bicerrectoria',
-        position=(2, 4, 43),
-        scale=10,
+        position=(2, 8, 43),
+        scale=18,
         collider='box',
     )
     objetos.append(simularAcademica)
     
         
-    simularEdificioA = Entity(
+    simularEdificioB = Entity(
         name='prueba',
         model='tripo_convert_60c755c2-5aa5-4751-b100-d350fada5a69.obj',
         texture=load_texture('tripo_image_60c755c2-5aa5-4751-b100-d350fada5a69_0.jpg'),
         normal_map=load_texture('tripo_image_60c755c2-5aa5-4751-b100-d350fada5a69_2.jpg'),
         specular_map=load_texture('tripo_image_60c755c2-5aa5-4751-b100-d350fada5a69_Roughness.jpg'),
-        position=(51, 3.5, 15),
+        position=(65, 6.5, 15),
         rotation=(0, -90, 0),  # (X, Y, Z)
-        scale=10,
+        scale=18,
         collider='box',
     )
-    objetos.append(simularEdificioA)
-    
-    
-    
-    # dona = Entity(
-    #     model='../pruebas/dona_prueba.gltf',  # Ruta al modelo de la dona
-    #     scale=1,
-    #     #texture='textura.png',
-    #     collider='mesh'  # Collider basado en la malla del modelo
-    # )
-    # objetos.append(dona)
-    
-    # arbol1  =  Entity(model='Tree1.obj', texture='render1hdcool', scale=0.5)
-    
-    # objetos.append(arbol1)
+    objetos.append(simularEdificioB)
 
+    simularEdificioC = Entity(
+        name='prueba',
+        model='tripo_convert_60c755c2-5aa5-4751-b100-d350fada5a69.obj',
+        texture=load_texture('tripo_image_60c755c2-5aa5-4751-b100-d350fada5a69_0.jpg'),
+        normal_map=load_texture('tripo_image_60c755c2-5aa5-4751-b100-d350fada5a69_2.jpg'),
+        specular_map=load_texture('tripo_image_60c755c2-5aa5-4751-b100-d350fada5a69_Roughness.jpg'),
+        position=(78, 6.5, 50),
+        rotation=(0, -90, 0),  # (X, Y, Z)
+        scale=18,
+        collider='box',
+    )
+    objetos.append(simularEdificioC)
     
     
+    simularEdificioD = Entity(
+        name='prueba',
+        model='tripo_convert_60c755c2-5aa5-4751-b100-d350fada5a69.obj',
+        texture=load_texture('tripo_image_60c755c2-5aa5-4751-b100-d350fada5a69_0.jpg'),
+        normal_map=load_texture('tripo_image_60c755c2-5aa5-4751-b100-d350fada5a69_2.jpg'),
+        specular_map=load_texture('tripo_image_60c755c2-5aa5-4751-b100-d350fada5a69_Roughness.jpg'),
+        position=(98, 6.5, 97),
+        rotation=(0, -90, 0),  # (X, Y, Z)
+        scale=18,
+        collider='box',
+    )
+    objetos.append(simularEdificioD)
+    
 
-    # Agrega aquí más objetos...
+    edificioA = Entity(
+        name='edificioa',
+        model='tripo_convert_f41604c9-e459-4596-a9ab-28cc206424e5.obj',
+        texture=load_texture('tripo_image_f41604c9-e459-4596-a9ab-28cc206424e5_0.jpg'),
+        specular_map=load_texture('tripo_image_f41604c9-e459-4596-a9ab-28cc206424e5_Roughness.jpg'),
+        reflection_map=load_texture('tripo_image_f41604c9-e459-4596-a9ab-28cc206424e5_Metallic.jpg'),
+        normal_map=load_texture('tripo_image_f41604c9-e459-4596-a9ab-28cc206424e5_2.jpg'),
+        scale=18,
+        position=(40, 7.5, -25),
+        rotation_y=90,
+        collider='box',
+    )
+    objetos.append(edificioA)
 
+
+    edificio_  = Entity(
+        name='marmol',
+        model='tripo_convert_e8b2b1e5-bcd9-4d97-bd22-b546fd7e2e53.obj',
+        texture=load_texture('tripo_image_e8b2b1e5-bcd9-4d97-bd22-b546fd7e2e53_0.jpg'),
+        specular_map=load_texture('tripo_image_e8b2b1e5-bcd9-4d97-bd22-b546fd7e2e53_Roughness.jpg'),
+        reflection_map=load_texture('tripo_image_e8b2b1e5-bcd9-4d97-bd22-b546fd7e2e53_Metallic.jpg'),
+        normal_map=load_texture('tripo_image_e8b2b1e5-bcd9-4d97-bd22-b546fd7e2e53_2.jpg'),
+        scale=18,
+        position=(-3, 4, -35),  # Posición a la izquierda (ajusta el valor -3 si quieres más separación)
+        rotation_y=180,
+        collider='box',
+
+    )
+    objetos.append(edificio_marmol)
+    
+    
+    #Agreagando modelo de edificios
+    
+    arbol_izquierda_1 = Entity(
+        model='tripo_convert_aba66a69-45fd-4baa-b625-7ae8a34771e7.obj',
+        texture=load_texture('tripo_image_aba66a69-45fd-4baa-b625-7ae8a34771e7_0.jpg'),
+        scale=2.5,
+        position=Vec3(-12, 1.5, -12),
+        rotation_y=0
+    )
+    
+    objetos.append(arbol_izquierda_1)
+
+    arbol_izquierda_2 = Entity(
+        model='tripo_convert_b68a70a1-05d1-449b-ac0e-2b2583790c71.obj',
+        texture=load_texture('tripo_image_b68a70a1-05d1-449b-ac0e-2b2583790c71_0.jpg'),
+        scale=2.5,
+        position=Vec3(-13.5, 1.5, -12.5),
+        rotation_y=30
+    )
+    
+    objetos.append(arbol_izquierda_2)
+
+    arbol_izquierda_3 = Entity(
+        model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
+        texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
+        scale=2.5,
+        position=Vec3(-11, 1.5, -11.5),
+        rotation_y=60
+    )
+    objetos.append(arbol_izquierda_3)
+    
+    
+    arquitectura = Entity(
+        model='tripo_convert_18172944-0c20-4a95-89a7-9ce8c63a095b.obj',
+        texture=load_texture('tripo_image_18172944-0c20-4a95-89a7-9ce8c63a095b_0.jpg'),
+        specular_map=load_texture('tripo_image_18172944-0c20-4a95-89a7-9ce8c63a095b_Roughness.jpg'),
+        reflection_map=load_texture('tripo_image_18172944-0c20-4a95-89a7-9ce8c63a095b_Metallic.jpg'),
+        normal_map=load_texture('tripo_image_18172944-0c20-4a95-89a7-9ce8c63a095b_2.jpg'),
+        scale=20,
+        position=(125, 7, 115),
+        rotation=(0, 0, 0),  # (X, Y, Z),
+        collider='box',
+    )
+    
+    objetos.append(arquitectura)
+    
+    Hidrante = Entity(
+        model='tripo_convert_2c66711a-fbb4-47bb-9d56-a3dcd632778b.obj',
+        texture=load_texture('tripo_image_2c66711a-fbb4-47bb-9d56-a3dcd632778b_0.jpg'),
+        specular_map=load_texture('tripo_image_2c66711a-fbb4-47bb-9d56-a3dcd632778b_Roughness.jpg'),
+        reflection_map=load_texture('tripo_image_2c66711a-fbb4-47bb-9d56-a3dcd632778b_Metallic.jpg'),
+        normal_map=load_texture('tripo_image_2c66711a-fbb4-47bb-9d56-a3dcd632778b_2.jpg'),
+        scale=3,  # Ajusta el tamaño según sea necesario
+        position=(-15, 1.2,-6),  # Cambia la posición si quieres colocarlo en otro lugar
+        rotation_y=180,
+        collider='box',
+    )
+    
+    objetos.append(Hidrante)
+    
+    basurero = Entity(
+        model='tripo_convert_dde89561-e552-455c-93a3-65f66c3a9c34.obj',
+        texture=load_texture('tripo_image_dde89561-e552-455c-93a3-65f66c3a9c34_0.jpg'),
+        specular_map=load_texture('tripo_image_dde89561-e552-455c-93a3-65f66c3a9c34_Roughness.jpg'),
+        reflection_map=load_texture('tripo_image_dde89561-e552-455c-93a3-65f66c3a9c34_Metallic.jpg'),
+        normal_map=load_texture('tripo_image_dde89561-e552-455c-93a3-65f66c3a9c34_2.jpg'),
+        scale=3,
+        position=Vec3(8, 1.2, -4),
+        rotation_y=45
+    )
+    
+    objetos.append(basurero)
+    
     return objetos

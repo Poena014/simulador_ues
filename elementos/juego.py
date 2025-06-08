@@ -29,6 +29,16 @@ class MiJuego(Entity):
             color=color.yellow
         )
 
+        # Indicador de posición del jugador (esquina inferior derecha)
+        self.indicador_posicion = Text(
+            text="x: 0.0  y: 0.0  z: 0.0                ",
+            origin=(0.5, -0.5),
+            position=(0.7, -0.48),  # Ajusta para la esquina inferior derecha
+            scale=1.1,
+            background=True,
+            color=color.azure
+        )
+
         self.inicializar_mundo()
         
         ruta_minimapa = r"img\mapav2simuladorues.png" 
@@ -50,7 +60,7 @@ class MiJuego(Entity):
             mouse_sensitivity=Vec2(60, 60),
             position=(0, 0, -10)
         )
-        self.jugador.speed = 5
+        self.jugador.speed = 12
         self.jugador.jump_height = 3
 
     def inicializar_mundo(self):
@@ -110,6 +120,11 @@ class MiJuego(Entity):
     def update(self):
         if hasattr(self, 'plataforma'):
             self.plataforma.rotation_y += 30 * time.dt
+
+        # Actualiza el indicador de posición del jugador
+        if self.jugador:
+            pos = self.jugador.position
+            self.indicador_posicion.text = f"X: {pos.x:.2f}  Z: {pos.y:.2f}  Y: {pos.z:.2f}"
 
 def obtener_texto_objeto(nombre):
     carpeta = os.path.join(os.path.dirname(__file__), 'textos')
