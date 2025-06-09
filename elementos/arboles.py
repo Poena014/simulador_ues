@@ -9,7 +9,7 @@ def cargar_arboles():
         model='tripo_convert_aba66a69-45fd-4baa-b625-7ae8a34771e7.obj',
         texture=load_texture('tripo_image_aba66a69-45fd-4baa-b625-7ae8a34771e7_0.jpg'),
         scale=10,
-        position=Vec3(35, 6, 12),
+        position=Vec3(35, 5, 12),
         rotation_y=0
     )
     
@@ -19,7 +19,7 @@ def cargar_arboles():
         model='tripo_convert_b68a70a1-05d1-449b-ac0e-2b2583790c71.obj',
         texture=load_texture('tripo_image_b68a70a1-05d1-449b-ac0e-2b2583790c71_0.jpg'),
         scale=10,
-        position=Vec3(56, 6, -27),
+        position=Vec3(56, 5 -27),
         rotation_y=30
     )
     
@@ -29,7 +29,7 @@ def cargar_arboles():
         model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
         texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
         scale=10,
-        position=Vec3(66, 6, -25),
+        position=Vec3(66, 5, -25),
         rotation_y=60
     )
     arboles.append(arbol_3)
@@ -37,7 +37,7 @@ def cargar_arboles():
         model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
         texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
         scale=10,
-        position=Vec3(64, 6, -34),
+        position=Vec3(64, 5, -34),
         rotation_y=60
     )
     arboles.append(arbol_4)
@@ -45,7 +45,7 @@ def cargar_arboles():
         model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
         texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
         scale=10,
-        position=Vec3(21, 6, -27),
+        position=Vec3(21, 5, -27),
         rotation_y=60
     )
     arboles.append(arbol_5)
@@ -53,7 +53,7 @@ def cargar_arboles():
         model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
         texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
         scale=10,
-        position=Vec3(10, 6, -32),
+        position=Vec3(10, 5, -32),
         rotation_y=60
     )
     arboles.append(arbol_6)
@@ -61,7 +61,7 @@ def cargar_arboles():
         model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
         texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
         scale=10,
-        position=Vec3(-10, 6, -21),
+        position=Vec3(-10, 5, -21),
         rotation_y=60
     )
     arboles.append(arbol_7)
@@ -69,7 +69,7 @@ def cargar_arboles():
         model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
         texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
         scale=10,
-        position=Vec3(-18, 6, -35),
+        position=Vec3(-18, 5, -35),
         rotation_y=60
     )
     arboles.append(arbol_8)
@@ -77,7 +77,7 @@ def cargar_arboles():
         model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
         texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
         scale=10,
-        position=Vec3(-26, 6, -34.99),
+        position=Vec3(-26, 5, -34.99),
         rotation_y=60
     )
     arboles.append(arbol_9)
@@ -93,10 +93,20 @@ def cargar_arboles():
         model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
         texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
         scale=10,
-        position=Vec3(38, 6, -2),
+        position=Vec3(38, 5, -2),
         rotation_y=60
     )
     arboles.append(arbol_11)
+
+    #par de la asociacion 
+    arbol_12 = Entity(
+        model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
+        texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
+        scale=(15,5,8),
+        position=Vec3(27, 3, 73),
+        rotation_y=60
+    )
+    arboles.append(arbol_12)
 
 
     

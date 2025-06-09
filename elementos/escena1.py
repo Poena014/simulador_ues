@@ -14,18 +14,59 @@ def cargar_escena():
     # Ejemplo de objetos, agrega los que quieras
     suelo = Entity(
         model='plane',
-        texture='grass',
+        texture='cementotextura',
         scale=300,
         collider='box',
         texture_scale=(10, 10)
     )
     objetos.append(suelo)
+    
+    
+    jardin1 = Entity(
+        model='plane', 
+        texture='grass', 
+        scale=(15, 1, 30),
+        position=(28, 0.1, 4),
+    )
+    
+    objetos.append(jardin1)
+    
+    
+    jardin2 = Entity(
+        model='plane', 
+        texture='grass', 
+        scale=(11, 1, 6),
+        position=(15, 0.1, -11),
+    )
+    
+    objetos.append(jardin2)
+    
+    jardin3 = Entity(
+        model='plane', 
+        texture='grass', 
+        scale=(13, 1, 8),
+        position=(-16, 0.1, -11),
+    )
+    
+    objetos.append(jardin3)
+    
+    jardin4 = Entity(
+        model='plane', 
+        texture='grass', 
+        scale=(13, 1, 8),
+        position=(-25, 0.1, 25),
+    )
+    
+    objetos.append(jardin4)
+    
+    
+    
 
     dona = Entity(
         name='Cubo Rojo Misterioso',
         model='dona',
-        position=(-3, 7.5, 4),
-        scale=10,
+        position=(-3, 6, 4),
+        scale=8,
         collider='box',
     )
     objetos.append(dona)
@@ -98,7 +139,7 @@ def cargar_escena():
         reflection_map=load_texture('tripo_image_f41604c9-e459-4596-a9ab-28cc206424e5_Metallic.jpg'),
         normal_map=load_texture('tripo_image_f41604c9-e459-4596-a9ab-28cc206424e5_2.jpg'),
         scale=18,
-        position=(40, 7.5, -25),
+        position=(40, 7.5, -28),
         rotation_y=90,
         collider='box',
     )
@@ -146,7 +187,7 @@ def cargar_escena():
         reflection_map=load_texture('tripo_image_2c66711a-fbb4-47bb-9d56-a3dcd632778b_Metallic.jpg'),
         normal_map=load_texture('tripo_image_2c66711a-fbb4-47bb-9d56-a3dcd632778b_2.jpg'),
         scale=3,  # Ajusta el tamaño según sea necesario
-        position=(-15, 1.2,-6),  # Cambia la posición si quieres colocarlo en otro lugar
+        position=(-15, 1.2,-5),  # Cambia la posición si quieres colocarlo en otro lugar
         rotation_y=180,
         collider='box',
     )
@@ -166,6 +207,48 @@ def cargar_escena():
     
     objetos.append(basurero)
     
+    
+    edificio_industrial = Entity(
+        model='tripo_convert_f6b6a061-bda8-4c8d-b21a-00dd714ed850.obj',
+        texture=load_texture('tripo_image_f6b6a061-bda8-4c8d-b21a-00dd714ed850_0.jpg'),
+        normal_map=load_texture('tripo_image_f6b6a061-bda8-4c8d-b21a-00dd714ed850_2.jpg'),
+        specular_map=load_texture('tripo_image_f6b6a061-bda8-4c8d-b21a-00dd714ed850_Roughness.jpg'),
+        reflection_map=load_texture('tripo_image_f6b6a061-bda8-4c8d-b21a-00dd714ed850_Metallic.jpg'),
+        scale=4.5,
+        position=Vec3(12, 2.5, -8),  # puedes ajustar esta posición si hay colisiones
+        rotation_y=90
+    )
+    
+    casa_asociaciones = Entity(
+        model='tripo_convert_2c4f5f80-fd91-4cf6-99f9-d7d3c1f8a457.obj',
+        texture=load_texture('tripo_image_2c4f5f80-fd91-4cf6-99f9-d7d3c1f8a457_0.jpg'),
+        normal_map=load_texture('tripo_image_2c4f5f80-fd91-4cf6-99f9-d7d3c1f8a457_2.jpg'),
+        specular_map=load_texture('tripo_image_2c4f5f80-fd91-4cf6-99f9-d7d3c1f8a457_Roughness.jpg'),
+        reflection_map=load_texture('tripo_image_2c4f5f80-fd91-4cf6-99f9-d7d3c1f8a457_Metallic.jpg'),
+        scale=10,
+        position=Vec3(13, 1.5, 79.5),  # Puedes ajustar la posición según tu escena
+        rotation_y=180
+    )
+    
+    mecanica1= Entity(
+        name='edificioa',
+        model='tripo_convert_f41604c9-e459-4596-a9ab-28cc206424e5.obj',
+        texture=load_texture('tripo_image_f41604c9-e459-4596-a9ab-28cc206424e5_0.jpg'),
+        specular_map=load_texture('tripo_image_f41604c9-e459-4596-a9ab-28cc206424e5_Roughness.jpg'),
+        reflection_map=load_texture('tripo_image_f41604c9-e459-4596-a9ab-28cc206424e5_Metallic.jpg'),
+        normal_map=load_texture('tripo_image_f41604c9-e459-4596-a9ab-28cc206424e5_2.jpg'),
+        scale=(18,18, 34),
+        position=(39.5, 7.5, 112.83),
+        rotation_y=-90,
+        collider='box',
+    )
+    objetos.append(mecanica1)
+
+
+    
+    
+    
+    objetos.append(casa_asociaciones)
     
     objetos.extend(cargar_mesas())
     objetos.extend(cargar_arboles())

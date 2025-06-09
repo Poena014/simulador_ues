@@ -26,11 +26,13 @@ class Minimap(Entity):
             scale=map_scale  # Solo para tamaño visual, no afecta el recorte de la textura
         )
 
+        # Dibuja el icono del jugador en el centro del minimapa, usando un quad cuadrado
         self.player_icon = Entity(
             parent=self.minimap_bg,
-            model='circle',
             texture=icon_texture,
-            scale=(0.1, 0.1),
+            model='quad',  # Asegura que sea un cuadrado
+            scale=(0.1, 0.1, 1),  # Escala cuadrada
+            rotation_y=45,
         )
 
         self.uv_center_actual = Vec2(0.5, 0.5)  # Centro actual mostrado
@@ -45,7 +47,7 @@ class Minimap(Entity):
         return [(u0, v0), (u1, v0), (u1, v1), (u0, v1)]
 
     def update(self):
-        self.player_icon.rotation_z = -self.player.rotation_y
+        self.player_icon.rotation_z = self.player.rotation_y
 
         # Mapea la posición del jugador directamente a UVs (ajusta el factor para tu experiencia)
         # Por ejemplo, cada 1 unidad en el mundo mueve 0.01 en UV
