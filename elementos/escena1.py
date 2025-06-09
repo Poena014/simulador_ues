@@ -83,7 +83,7 @@ def cargar_escena():
     # objetos.append(marmol)
     
     simularAcademica = Entity(
-        name='Cubo Rojo Misterioso',
+        name='academica',
         model='Bicerrectoria',
         position=(2, 8, 43),
         scale=18,
@@ -93,7 +93,7 @@ def cargar_escena():
     
         
     simularEdificioB = Entity(
-        name='prueba',
+        name='edificiob',
         model='tripo_convert_60c755c2-5aa5-4751-b100-d350fada5a69.obj',
         texture=load_texture('tripo_image_60c755c2-5aa5-4751-b100-d350fada5a69_0.jpg'),
         normal_map=load_texture('tripo_image_60c755c2-5aa5-4751-b100-d350fada5a69_2.jpg'),
@@ -106,7 +106,7 @@ def cargar_escena():
     objetos.append(simularEdificioB)
 
     simularEdificioC = Entity(
-        name='prueba',
+        name='edificioc',
         model='tripo_convert_60c755c2-5aa5-4751-b100-d350fada5a69.obj',
         texture=load_texture('tripo_image_60c755c2-5aa5-4751-b100-d350fada5a69_0.jpg'),
         normal_map=load_texture('tripo_image_60c755c2-5aa5-4751-b100-d350fada5a69_2.jpg'),
@@ -120,7 +120,7 @@ def cargar_escena():
     
     
     simularEdificioD = Entity(
-        name='prueba',
+        name='edificiod',
         model='tripo_convert_60c755c2-5aa5-4751-b100-d350fada5a69.obj',
         texture=load_texture('tripo_image_60c755c2-5aa5-4751-b100-d350fada5a69_0.jpg'),
         normal_map=load_texture('tripo_image_60c755c2-5aa5-4751-b100-d350fada5a69_2.jpg'),
@@ -169,6 +169,7 @@ def cargar_escena():
     
     
     arquitectura = Entity(
+        name='arquitectura',
         model='tripo_convert_18172944-0c20-4a95-89a7-9ce8c63a095b.obj',
         texture=load_texture('tripo_image_18172944-0c20-4a95-89a7-9ce8c63a095b_0.jpg'),
         specular_map=load_texture('tripo_image_18172944-0c20-4a95-89a7-9ce8c63a095b_Roughness.jpg'),
@@ -183,6 +184,7 @@ def cargar_escena():
     objetos.append(arquitectura)
     
     Hidrante = Entity(
+        name='hidrante',
         model='tripo_convert_2c66711a-fbb4-47bb-9d56-a3dcd632778b.obj',
         texture=load_texture('tripo_image_2c66711a-fbb4-47bb-9d56-a3dcd632778b_0.jpg'),
         specular_map=load_texture('tripo_image_2c66711a-fbb4-47bb-9d56-a3dcd632778b_Roughness.jpg'),
@@ -199,6 +201,7 @@ def cargar_escena():
 
     
     edificio_industrial = Entity(
+        name='edificio_industrial',
         model='tripo_convert_f6b6a061-bda8-4c8d-b21a-00dd714ed850.obj',
         texture=load_texture('tripo_image_f6b6a061-bda8-4c8d-b21a-00dd714ed850_0.jpg'),
         normal_map=load_texture('tripo_image_f6b6a061-bda8-4c8d-b21a-00dd714ed850_2.jpg'),
@@ -212,6 +215,7 @@ def cargar_escena():
     objetos.append(edificio_industrial)
     
     casa_asociaciones = Entity(
+        name='asociaciones',
         model='tripo_convert_2c4f5f80-fd91-4cf6-99f9-d7d3c1f8a457.obj',
         texture=load_texture('tripo_image_2c4f5f80-fd91-4cf6-99f9-d7d3c1f8a457_0.jpg'),
         normal_map=load_texture('tripo_image_2c4f5f80-fd91-4cf6-99f9-d7d3c1f8a457_2.jpg'),
@@ -223,7 +227,7 @@ def cargar_escena():
     )
     
     mecanica1= Entity(
-        name='edificioa',
+        name='edificiomecanica',
         model='tripo_convert_f41604c9-e459-4596-a9ab-28cc206424e5.obj',
         texture=load_texture('tripo_image_f41604c9-e459-4596-a9ab-28cc206424e5_0.jpg'),
         specular_map=load_texture('tripo_image_f41604c9-e459-4596-a9ab-28cc206424e5_Roughness.jpg'),
