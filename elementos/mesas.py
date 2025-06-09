@@ -105,8 +105,6 @@ def cargar_mesas():
     )
     mesas.append(mesav2_1)
     
-    referencia1=Entity(model='cube', texture='brick', scale=5, position=(48.17,1,53.5))  # Plano con textura de ladrillos
-    mesas.append(referencia1)
     
     
     return mesas
