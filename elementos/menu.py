@@ -26,30 +26,39 @@ class Menu(Entity):
             color=color.white  # Letras blancas
         )
         
-        self.boton_continuar = Button(
+        self.boton_escena1 = Button(
             parent=self.contenedor,
-            text='Continuar (1)',
-            color=color.green.tint(-0.1),
+            text='Ir a Escena 1',
+            color=color.green.tint(0.2),
+            highlight_color=color.green.tint(0.4),
+            pressed_color=color.green.tint(0.1),
+            disabled_color=color.green.tint(0.1),
             scale=(0.4, 0.08),
             y=0.13,
-            on_click=self.continuar,
+            on_click=self.ir_a_escena1,
             text_color=color.white
         )
         
-        self.boton_controles = Button(
+        self.boton_escena2 = Button(
             parent=self.contenedor,
-            text='Controles',
-            color=color.azure.tint(-0.1),
+            text='Ir a Escena 2',
+            color=color.azure.tint(0.2),
+            highlight_color=color.azure.tint(0.4),
+            pressed_color=color.azure.tint(0.1),
+            disabled_color=color.azure.tint(0.1),
             scale=(0.4, 0.08),
             y=0.01,
-            on_click=self.mostrar_controles,
+            on_click=self.ir_a_escena2,
             text_color=color.white
         )
 
         self.boton_opciones = Button(
             parent=self.contenedor,
             text='Opciones',
-            color=color.orange.tint(-0.1),
+            color=color.orange.tint(0.2),
+            highlight_color=color.orange.tint(0.4),
+            pressed_color=color.orange.tint(0.1),
+            disabled_color=color.orange.tint(0.1),
             scale=(0.4, 0.08),
             y=-0.11,
             on_click=self.mostrar_opciones,
@@ -59,7 +68,10 @@ class Menu(Entity):
         self.boton_salir = Button(
             parent=self.contenedor,
             text='Salir del Juego',
-            color=color.red.tint(-0.1),
+            color=color.red.tint(0.2),
+            highlight_color=color.red.tint(0.4),
+            pressed_color=color.red.tint(0.1),
+            disabled_color=color.red.tint(0.1),
             scale=(0.4, 0.08),
             y=-0.23,
             on_click=self.salir,
@@ -91,3 +103,11 @@ class Menu(Entity):
 
     def salir(self):
         application.quit()
+
+    def ir_a_escena1(self):
+        self.juego.cargar_escena(1)
+        self.ocultar()
+
+    def ir_a_escena2(self):
+        self.juego.cargar_escena(2)
+        self.ocultar()

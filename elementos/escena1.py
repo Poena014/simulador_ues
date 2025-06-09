@@ -2,6 +2,7 @@ from ursina import *
 import os
 from .mesas import cargar_mesas
 from .arboles import cargar_arboles
+from .basureros import cargar_basureros
 
 def obtener_ruta_modelo(nombre_modelo):
     import os
@@ -34,7 +35,8 @@ def cargar_escena():
     
     jardin2 = Entity(
         model='plane', 
-        texture='grass', 
+        texture='tierra3', 
+        texture_scale=(1, 1),
         scale=(11, 1, 6),
         position=(15, 0.1, -11),
     )
@@ -194,19 +196,7 @@ def cargar_escena():
     
     objetos.append(Hidrante)
     
-    basurero = Entity(
-        model='tripo_convert_dde89561-e552-455c-93a3-65f66c3a9c34.obj',
-        texture=load_texture('tripo_image_dde89561-e552-455c-93a3-65f66c3a9c34_0.jpg'),
-        specular_map=load_texture('tripo_image_dde89561-e552-455c-93a3-65f66c3a9c34_Roughness.jpg'),
-        reflection_map=load_texture('tripo_image_dde89561-e552-455c-93a3-65f66c3a9c34_Metallic.jpg'),
-        normal_map=load_texture('tripo_image_dde89561-e552-455c-93a3-65f66c3a9c34_2.jpg'),
-        scale=3,
-        position=Vec3(8, 1.2, -4),
-        rotation_y=45
-    )
-    
-    objetos.append(basurero)
-    
+
     
     edificio_industrial = Entity(
         model='tripo_convert_f6b6a061-bda8-4c8d-b21a-00dd714ed850.obj',
@@ -214,8 +204,8 @@ def cargar_escena():
         normal_map=load_texture('tripo_image_f6b6a061-bda8-4c8d-b21a-00dd714ed850_2.jpg'),
         specular_map=load_texture('tripo_image_f6b6a061-bda8-4c8d-b21a-00dd714ed850_Roughness.jpg'),
         reflection_map=load_texture('tripo_image_f6b6a061-bda8-4c8d-b21a-00dd714ed850_Metallic.jpg'),
-        scale=18,
-        position=Vec3(143.5, 6, 162),  # puedes ajustar esta posición si hay colisiones
+        scale=(18,18,36),
+        position=Vec3(143.5, 8, 162),  # puedes ajustar esta posición si hay colisiones
         rotation_y=-90
     )
     
@@ -254,6 +244,6 @@ def cargar_escena():
     
     objetos.extend(cargar_mesas())
     objetos.extend(cargar_arboles())
-    
+    objetos.extend(cargar_basureros())
     
     return objetos

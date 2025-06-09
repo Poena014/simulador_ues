@@ -4,13 +4,16 @@ import os
 
 from .textoemergente import TextPopup
 from .minimapa import Minimap
-from .escena1 import cargar_escena
+from .escena1 import cargar_escena as cargar_escena1
+from .escena2 import cargar_escena2
 
 class MiJuego(Entity):
     def __init__(self):
         super().__init__()
         self.jugador = None
         self.popup = None
+        self.minimapa = None
+        self.escena_actual = 1  # Por defecto, escena 1
 
         self.instrucciones = Text(
             text="Presiona 1 para ver el menú\nClick derecho para ver mensaje\nUsa + y - para zoom de cámara",
@@ -39,21 +42,34 @@ class MiJuego(Entity):
             color=color.azure
         )
 
-        self.inicializar_mundo()
-        
-        ruta_minimapa = r"img\mapav2simuladorues.png" 
-        ruta_indicador = r"img\indicador.png" 
-        
-        
-        self.inicializar_jugador()
-        Minimap(
-            player=self.jugador,
-            map_scale=Vec2(0.45, 0.35),
-            bg_texture=ruta_minimapa,
-            icon_texture=ruta_indicador,
-            scroll_factor=0.05 # Cambiar velocidad de desplazamiento del minimapa
-        )
+        self.cargar_escena(1)  # Carga la escena 1 por defecto
 
+    def cargar_escena(self, numero):
+        # Limpia objetos anteriores si existen
+        if hasattr(self, 'objetos_escena') and self.objetos_escena:
+            for obj in self.objetos_escena:
+                destroy(obj)
+        if self.minimapa:
+            destroy(self.minimapa)
+            self.minimapa = None
+
+        # Carga la escena seleccionada
+        if numero == 1:
+            self.objetos_escena = cargar_escena1()
+            self.inicializar_jugador()
+            self.minimapa = Minimap(
+                player=self.jugador,
+                map_scale=Vec2(0.45, 0.35),
+                bg_texture=r"img\mapav2simuladorues.png",
+                icon_texture=r"img\indicador.png",
+                scroll_factor=0.05
+            )
+            self.escena_actual = 1
+        elif numero == 2:
+            self.objetos_escena = cargar_escena2()
+            self.inicializar_jugador()
+            # No se crea minimapa en la escena 2
+            self.escena_actual = 2
 
     def inicializar_jugador(self):
         self.jugador = FirstPersonController(
