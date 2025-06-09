@@ -209,7 +209,8 @@ def cargar_escena():
         reflection_map=load_texture('tripo_image_f6b6a061-bda8-4c8d-b21a-00dd714ed850_Metallic.jpg'),
         scale=(18,18,36),
         position=Vec3(143.5, 8, 162),  # puedes ajustar esta posición si hay colisiones
-        rotation_y=-90
+        rotation_y=-90,
+        collider='box',
     )
     
     objetos.append(edificio_industrial)
@@ -223,7 +224,8 @@ def cargar_escena():
         reflection_map=load_texture('tripo_image_2c4f5f80-fd91-4cf6-99f9-d7d3c1f8a457_Metallic.jpg'),
         scale=10,
         position=Vec3(13, 1.5, 79.5),  # Puedes ajustar la posición según tu escena
-        rotation_y=180
+        rotation_y=180,
+        collider='box',
     )
     
     mecanica1= Entity(

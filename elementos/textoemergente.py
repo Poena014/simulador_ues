@@ -6,7 +6,7 @@ class TextPopup(Entity):
             parent=camera.ui,
             model='quad',
             color=color.rgba(0, 0, 0, 0.95),
-            scale=(0.55, 0.4),
+            scale=(0.8, 0.55),
             position=(0, 0.1),
             z=-1
         )
@@ -15,7 +15,7 @@ class TextPopup(Entity):
         self.text_entity = Text(
             parent=self,
             text=text_content,
-            scale=(2,2,1),
+            scale=(1,2,1),
             origin=(0, 0),
             color=color.white
         )
