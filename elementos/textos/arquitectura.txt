@@ -1,0 +1,4 @@
+Edificio de Arquitectura \n
+Nuevo edificio para arquitectura \n
+Aqui se encuentran las oficinas de la facultad de arquitectura \n
+Y demas \n

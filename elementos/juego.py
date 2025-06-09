@@ -79,9 +79,6 @@ class MiJuego(Entity):
         self.jugador.speed = 12
         self.jugador.jump_height = 3
 
-    def inicializar_mundo(self):
-        self.objetos_escena = cargar_escena()
-        # Si necesitas manipular los objetos, puedes acceder a self.objetos_escena
 
     def manejar_input_jugador(self, key):
         self.jugador.input(key)
@@ -124,7 +121,6 @@ class MiJuego(Entity):
     # juego.py (Fragmento modificado)
     def crear_popup(self, objeto):
         texto_final = obtener_texto_objeto(objeto.name)
-        print(objeto.name, texto_final)
         self.popup = TextPopup(texto_final)
 
    

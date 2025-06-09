@@ -1,0 +1,7 @@
+Edificio de Industrial y Sistemas \n
+Aqui se encuentras las oficinas de Sistemas \n
+Aqui se encuentran las oficinas de Industrial \n
+->Laboratorios de Sistemas 
+---LCOMP1
+---LCOMP2
+---LCOMP3

@@ -1,0 +1,3 @@
+Edificio C \n
+Aqui se encuentran los salones de clases\n
+Debes asistir en el horario establecido\n

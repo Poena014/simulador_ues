@@ -1,3 +1,2 @@
-esta es la facultad de \n
-asdasdasdasdadadsadadadaadda\n 
-asdasdasdasdasdasdasdasdasdad
+Edificio A \n
+Habitaciones del campus (Nuevo) \n

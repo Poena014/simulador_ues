@@ -1,0 +1,3 @@
+Edificio de Mecanica \n
+Aqui se encuentran las oficinas de mecanica \n
+Aqui se encuentran los laboratorios de mecanica \n
