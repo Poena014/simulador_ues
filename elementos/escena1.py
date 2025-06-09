@@ -14,8 +14,8 @@ def cargar_escena():
     # Ejemplo de objetos, agrega los que quieras
     suelo = Entity(
         model='plane',
-        texture='cementotextura',
-        scale=300,
+        texture='walk3',
+        scale=325,
         collider='box',
         texture_scale=(10, 10)
     )
@@ -63,7 +63,7 @@ def cargar_escena():
     
 
     dona = Entity(
-        name='Cubo Rojo Misterioso',
+        name='dona',
         model='dona',
         position=(-3, 6, 4),
         scale=8,
@@ -214,10 +214,12 @@ def cargar_escena():
         normal_map=load_texture('tripo_image_f6b6a061-bda8-4c8d-b21a-00dd714ed850_2.jpg'),
         specular_map=load_texture('tripo_image_f6b6a061-bda8-4c8d-b21a-00dd714ed850_Roughness.jpg'),
         reflection_map=load_texture('tripo_image_f6b6a061-bda8-4c8d-b21a-00dd714ed850_Metallic.jpg'),
-        scale=4.5,
-        position=Vec3(12, 2.5, -8),  # puedes ajustar esta posición si hay colisiones
-        rotation_y=90
+        scale=18,
+        position=Vec3(143.5, 6, 162),  # puedes ajustar esta posición si hay colisiones
+        rotation_y=-90
     )
+    
+    objetos.append(edificio_industrial)
     
     casa_asociaciones = Entity(
         model='tripo_convert_2c4f5f80-fd91-4cf6-99f9-d7d3c1f8a457.obj',
