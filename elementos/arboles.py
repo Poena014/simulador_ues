@@ -46,7 +46,7 @@ def cargar_arboles():
         model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
         texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
         scale=15,
-        position=Vec3(21, 8, -27),
+        position=Vec3(21, 5, -27),
         rotation_y=60
     )
     arboles.append(arbol_5)
@@ -63,7 +63,7 @@ def cargar_arboles():
         model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
         texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
         scale=12,
-        position=Vec3(-20, 6, 17.53),
+        position=Vec3(-20, 5, 17.53),
         rotation_y=60
     )
     arboles.append(arbol_6)
@@ -119,7 +119,7 @@ def cargar_arboles():
         model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
         texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
         scale=9.5,
-        position=Vec3(2.70, 6, -15.79),
+        position=Vec3(2.70, 5, -15.79),
         rotation_y=60
     )
     arboles.append(arbol_10)
@@ -149,7 +149,7 @@ def cargar_arboles():
         model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
         texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
         scale=(15,5,8),
-        position=Vec3(27, 3, 73),
+        position=Vec3(27, 5, 73),
         rotation_y=60
     )
     arboles.append(arbol_12)
@@ -237,5 +237,160 @@ def cargar_arboles():
         texture='grass', 
         scale=3,
         position=(-17.68, 0.1, -41.83),
+    )
+    arbol_19 = Entity(
+        model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
+        texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
+        scale=9.5,
+        position=Vec3(120.14, 5, 96.89),
+        rotation_y=60
+    )
+    arboles.append(arbol_14)
+    jardin19 = Entity(
+        model='plane', 
+        texture='grass', 
+        scale=3,
+        position=(120.14, 0.1, 96.89),
+    )
+    arbol_20 = Entity(
+        model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
+        texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
+        scale=9.5,
+        position=Vec3(122.66, 5, 98.10),
+        rotation_y=60
+    )
+    arboles.append(arbol_14)
+    jardin20 = Entity(
+        model='plane', 
+        texture='grass', 
+        scale=3,
+        position=(122.66, 0.1, 98.10),
+    )
+    arbol_21 = Entity(
+        model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
+        texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
+        scale=9.5,
+        position=Vec3(125.51, 5, 97.29),
+        rotation_y=60
+    )
+    arboles.append(arbol_14)
+    jardin21 = Entity(
+        model='plane', 
+        texture='grass', 
+        scale=3,
+        position=(125.51, 0.1, 97.29),
+    )
+    arbol_22 = Entity(
+        model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
+        texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
+        scale=9.5,
+        position=Vec3(130.41, 5, 93.99),
+        rotation_y=60
+    )
+    arboles.append(arbol_14)
+    jardin22 = Entity(
+        model='plane', 
+        texture='grass', 
+        scale=3,
+        position=(130.41, 0.1, 93.99),
+    )
+    arbol_23 = Entity(
+        model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
+        texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
+        scale=9.5,
+        position=Vec3(129.96, 5, 96.70),
+        rotation_y=60
+    )
+    arboles.append(arbol_14)
+    jardin23 = Entity(
+        model='plane', 
+        texture='grass', 
+        scale=3,
+        position=(129.96, 0.1, 96.70),
+    )
+    arbol_24 = Entity(
+        model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
+        texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
+        scale=9.5,
+        position=Vec3(124.70, 5, 97.08),
+        rotation_y=60
+    )
+    arboles.append(arbol_14)
+    jardin_24 = Entity(
+        model='plane', 
+        texture='grass', 
+        scale=3,
+        position=(124.70, 0.1, 97.08),
+    )
+    arbol_25 = Entity(
+        model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
+        texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
+        scale=9.5,
+        position=Vec3(106.47, 5, 122.02),
+        rotation_y=60
+    )
+    arboles.append(arbol_14)
+    jardin25 = Entity(
+        model='plane', 
+        texture='grass', 
+        scale=3,
+        position=(106.47, 0.1, 122.02),
+    )
+    arbol_26 = Entity(
+        model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
+        texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
+        scale=9.5,
+        position=Vec3(108.23, 5, 123.67),
+        rotation_y=60
+    )
+    arboles.append(arbol_14)
+    jardin126 = Entity(
+        model='plane', 
+        texture='grass', 
+        scale=3,
+        position=(108.23, 0.1, 123.67),
+    )
+    #arboles que estan frente a el edificio A
+    arbol_27 = Entity(
+        model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
+        texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
+        scale=9.5,
+        position=Vec3(92.93, 5, 117.03),
+        rotation_y=60
+    )
+    arboles.append(arbol_14)
+    jardin_27 = Entity(
+        model='plane', 
+        texture='grass', 
+        scale=3,
+        position=(92.93, 0.1, 117.03),
+    )
+    arbol_28 = Entity(
+        model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
+        texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
+        scale=9.5,
+        position=Vec3(91.63, 5, 118.58),
+        rotation_y=60
+    )
+    arboles.append(arbol_14)
+    jardin_28 = Entity(
+        model='plane', 
+        texture='grass', 
+        scale=3,
+        position=(91.63, 0.1, 118.58),
+    )
+    arbol_29 = Entity(
+        model='tripo_convert_ccd064cd-74e9-4315-872f-cc5250e4820a.obj',
+        texture=load_texture('tripo_image_ccd064cd-74e9-4315-872f-cc5250e4820a_0.jpg'),
+        scale=9.5,
+        position=Vec3(93.84, 5, 116.09),
+        rotation_y=60
+    )
+    arboles.append(arbol_14)
+    jardin_29 = Entity(
+        model='plane', 
+        texture='grass', 
+        scale=3,
+        position=(93.84, 0.1, 116.09),
     )
     return arboles
